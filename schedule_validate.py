@@ -4,7 +4,7 @@ from Tkinter import Tk
 from tkFileDialog import askopenfilename
 from openpyxl.styles import Color, PatternFill, Font, Border
 
-conn = pymssql.connect(server='ATLASSPSQL1', user='sa', password='titp4sa', database='SUPPORT31')  
+conn = pymssql.connect(server='ATLASSPSQL1', user='******', password='******', database='SUPPORT31')  
 cursor = conn.cursor()  
 Tk().withdraw()
 filename = askopenfilename()
