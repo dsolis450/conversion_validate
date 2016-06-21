@@ -16,7 +16,7 @@ def valB(sheet, row_num):
 
 
 
-conn = pymssql.connect(server='ATLASSPSQL1', user='sa', password='titp4sa', database='SUPPORT31')  
+conn = pymssql.connect(server='ATLASSPSQL1', user='*******', password='******', database='SUPPORT31')  
 cursor = conn.cursor()  
 Tk().withdraw()
 filename = askopenfilename()
