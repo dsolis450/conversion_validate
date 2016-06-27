@@ -49,9 +49,9 @@ range_expr = 'A2:A' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
     for cell in row:
-	    if cell.value == None:
+		if cell.value == None:
 			error_msg += "ExtPropertyID required; "
-	    else:
+		else:
 		    if cell.value not in results:
 				error_msg += "Property ID not found; "
 		
@@ -72,11 +72,11 @@ nws.append(['AssetClass','Row','Errors'])
 range_expr = 'B2:B' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	error_msg = ""	
-    row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	row_number += 1
+	for cell in row:
+		if cell.value == None:
 			error_msg += "AssetClass required; "
-	    else:
+		else:
 		    if cell.value not in results:
 				error_msg += "Asset class not found; "
 				
@@ -91,8 +91,8 @@ nws.append(['AssetName','Row','Errors'])
 range_expr = 'C2:C' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	for cell in row:
+		if cell.value == None:
 			error_msg += "Asset name required; "
 		
 		if error_msg != "":
@@ -101,13 +101,13 @@ for row in sheet.iter_rows(range_string=range_expr):
 #validate ASSETNUMBER	
 nws = nwb.create_sheet('AssetNumber')
 row_number = 1
-nws.append(['AssetNumber','Row','Errors')		
+nws.append(['AssetNumber','Row','Errors'])		
 range_expr = 'D2:D' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	error_msg = ""
-    row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	row_number += 1
+	for cell in row:
+		if cell.value == None:
 			error_msg += "Asset number required; "
 			
 		if error_msg != "":
@@ -120,9 +120,9 @@ nws.append(['SerialNumber','Row','Errors'])
 range_expr = 'F2:F' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	error_msg = ""
-    row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	row_number += 1
+	for cell in row:
+		if cell.value == None:
 			error_msg += "Serial number required; "
 			
 		if error_msg != "":
@@ -160,9 +160,9 @@ nws.append(['Make','Row','Errors'])
 range_expr = 'H2:H' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	error_msg = ""
-    row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	row_number += 1
+	for cell in row:
+		if cell.value == None:
 			error_msg += "Make required; "
 			
 		if error_msg != "":
@@ -175,9 +175,9 @@ nws.append(['Model','Row','Errors'])
 range_expr = 'I2:I' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	error_msg = ""
-    row_number += 1
-    for cell in row:
-	    if cell.value == None:
+	row_number += 1
+	for cell in row:
+		if cell.value == None:
 			error_msg += "Model required; "
 		
 		if error_msg != "":
@@ -226,7 +226,7 @@ for row in sheet.iter_rows(range_string=range_expr):
 	for cell in row:
 		if cell.value == None:
 			pass
-		else 
+		else: 
 			if cell.value not in results:
 				error_msg =+ "Asset keyword not found; "
 		
