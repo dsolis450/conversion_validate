@@ -1,18 +1,10 @@
+import sys
 import pymssql  
 import openpyxl
+
 from Tkinter import Tk
 from tkFileDialog import askopenfilename
 from openpyxl.styles import Color, PatternFill, Font, Border
-
-def valB(sheet, row_num):
-	row_count = sheet.max_row
-	range_expr = 'B' + str(row_num) +':B' + str(row_num)
-	for row in sheet.iter_rows(range_string=range_expr):
-		for cell in row:
-			if cell.value == None:
-				return cell.value
-			else:
-				return cell.value
 
 
 database_in = 'SUPPORT' + raw_input('Enter support database number: ')
@@ -20,6 +12,7 @@ try:
     conn = pymssql.connect(server='ATLASSPSQL1', user='sa', password='titp4sa', database=database_in)  
 except pymssql.Error as e:
 	print "An error has occurred: ", e
+	sys.exit(1)
 cursor = conn.cursor()  
 Tk().withdraw()
 filename = askopenfilename()
@@ -194,8 +187,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
 	for cell in row:
 		if cell.value == None:
-			nws.append([cell.value, row_number])	
-		else:
+			pass
+		else 
 			if cell.value not in results:
 				nws.append([cell.value, row_number])	
 				
@@ -203,12 +196,6 @@ for row in sheet.iter_rows(range_string=range_expr):
 print "\n Saving..."
 nwb.save('output.xlsx')
 	
-
-
-
-
-
-
 
 
 
