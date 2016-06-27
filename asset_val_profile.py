@@ -1,18 +1,10 @@
+import sys
 import pymssql  
 import openpyxl
+
 from Tkinter import Tk
 from tkFileDialog import askopenfilename
 from openpyxl.styles import Color, PatternFill, Font, Border
-
-def valB(sheet, row_num):
-	row_count = sheet.max_row
-	range_expr = 'B' + str(row_num) +':B' + str(row_num)
-	for row in sheet.iter_rows(range_string=range_expr):
-		for cell in row:
-			if cell.value == None:
-				return cell.value
-			else:
-				return cell.value
 
 
 database_in = 'SUPPORT' + raw_input('Enter support database number: ')
@@ -20,6 +12,7 @@ try:
     conn = pymssql.connect(server='ATLASSPSQL1', user='sa', password='titp4sa', database=database_in)  
 except pymssql.Error as e:
 	print "An error has occurred: ", e
+	sys.exit(1)
 cursor = conn.cursor()  
 Tk().withdraw()
 filename = askopenfilename()
@@ -50,6 +43,7 @@ while row:
 
 nws = nwb.create_sheet('ExtPropID')
 row_number = 1
+nws.append(['ExtPropID','Row'])
 range_expr = 'A2:A' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -70,6 +64,7 @@ while row:
 
 nws = nwb.create_sheet('AssetClass')
 row_number = 1	
+nws.append(['AssetClass','Row'])
 range_expr = 'B2:B' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -82,7 +77,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate ASSETNAME
 nws = nwb.create_sheet('AssetName')
-row_number = 1	
+row_number = 1
+nws.append(['AssetName','Row'])	
 range_expr = 'C2:C' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     for cell in row:
@@ -91,7 +87,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate ASSETNUMBER	
 nws = nwb.create_sheet('AssetNumber')
-row_number = 1	
+row_number = 1
+nws.append(['AssetNumber','Row'])		
 range_expr = 'D2:D' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -101,7 +98,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate SERIALNUMBER
 nws = nwb.create_sheet('SerialNumber')
-row_number = 1	
+row_number = 1
+nws.append(['SerialNumber','Row'])
 range_expr = 'F2:F' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -118,7 +116,8 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetRank')
-row_number = 1	
+row_number = 1
+nws.append(['AssetRank','Row'])
 range_expr = 'G2:G' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
@@ -131,7 +130,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate MAKE
 nws = nwb.create_sheet('Make')
-row_number = 1	
+row_number = 1
+nws.append(['Make','Row'])
 range_expr = 'H2:H' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -141,7 +141,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 			
 #validate MODEL
 nws = nwb.create_sheet('Model')
-row_number = 1	
+row_number = 1
+nws.append(['Model','Row'])
 range_expr = 'I2:I' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -158,7 +159,8 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetStatus')
-row_number = 1	
+row_number = 1
+nws.append(['AssetStatus','Row'])
 range_expr = 'J2:J' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
@@ -178,17 +180,22 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetKeyword')
-row_number = 1	
+row_number = 1
+nws.append(['AssetKeyword','Row'])
 range_expr = 'AL2:AL' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
 	for cell in row:
 		if cell.value == None:
-			nws.append([cell.value, row_number])	
-		else:
+			pass
+		else 
 			if cell.value not in results:
 				nws.append([cell.value, row_number])	
 				
 				
 print "\n Saving..."
 nwb.save('output.xlsx')
+	
+
+
+
