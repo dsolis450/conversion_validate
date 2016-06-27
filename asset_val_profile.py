@@ -50,6 +50,7 @@ while row:
 
 nws = nwb.create_sheet('ExtPropID')
 row_number = 1
+nws.append(['ExtPropID','Row'])
 range_expr = 'A2:A' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -70,6 +71,7 @@ while row:
 
 nws = nwb.create_sheet('AssetClass')
 row_number = 1	
+nws.append(['AssetClass','Row'])
 range_expr = 'B2:B' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -82,7 +84,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate ASSETNAME
 nws = nwb.create_sheet('AssetName')
-row_number = 1	
+row_number = 1
+nws.append(['AssetName','Row'])	
 range_expr = 'C2:C' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     for cell in row:
@@ -91,7 +94,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate ASSETNUMBER	
 nws = nwb.create_sheet('AssetNumber')
-row_number = 1	
+row_number = 1
+nws.append(['AssetNumber','Row'])		
 range_expr = 'D2:D' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -101,7 +105,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate SERIALNUMBER
 nws = nwb.create_sheet('SerialNumber')
-row_number = 1	
+row_number = 1
+nws.append(['SerialNumber','Row'])
 range_expr = 'F2:F' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -118,7 +123,8 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetRank')
-row_number = 1	
+row_number = 1
+nws.append(['AssetRank','Row'])
 range_expr = 'G2:G' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
@@ -131,7 +137,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 
 #validate MAKE
 nws = nwb.create_sheet('Make')
-row_number = 1	
+row_number = 1
+nws.append(['Make','Row'])
 range_expr = 'H2:H' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -141,7 +148,8 @@ for row in sheet.iter_rows(range_string=range_expr):
 			
 #validate MODEL
 nws = nwb.create_sheet('Model')
-row_number = 1	
+row_number = 1
+nws.append(['Model','Row'])
 range_expr = 'I2:I' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
     row_number += 1
@@ -158,7 +166,8 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetStatus')
-row_number = 1	
+row_number = 1
+nws.append(['AssetStatus','Row'])
 range_expr = 'J2:J' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
@@ -178,7 +187,8 @@ while row:
     row = cursor.fetchone()
 	
 nws = nwb.create_sheet('AssetKeyword')
-row_number = 1	
+row_number = 1
+nws.append(['AssetKeyword','Row'])
 range_expr = 'AL2:AL' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
 	row_number += 1
@@ -192,3 +202,13 @@ for row in sheet.iter_rows(range_string=range_expr):
 				
 print "\n Saving..."
 nwb.save('output.xlsx')
+	
+
+
+
+
+
+
+
+
+
