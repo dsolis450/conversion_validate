@@ -19,4 +19,5 @@ def profile_assetclass(header_name, sheet, nws, range_expr, cursor):
   				error_msg += "Asset class not found; "
   				
   		if error_msg != "":
-  			nws.append([cell.value, row_number, error_msg])
+  			nws.append([cell.value, row_number, error_msg]) 
+#test
