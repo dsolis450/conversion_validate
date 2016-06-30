@@ -1,6 +1,6 @@
 #Helper file that holds the header-function dictionary and the apply function
 
-HEADER_FUNC_DICT = {
+HEADER_FN = {
   'ExtPropertyID': val_propertyid,
   'AssetClass': val_assetclass,
   'AssetRank': val_assetrank,
