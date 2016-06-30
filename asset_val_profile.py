@@ -17,8 +17,7 @@ cursor = conn.cursor()
 Tk().withdraw()
 filename = askopenfilename()
 
-#wb = openpyxl.load_workbook(filename, use_iterators = True)
-wb = openpyxl.load_workbook(filename)
+wb = openpyxl.load_workbook(filename, use_iterators = True)
 sheet = wb.get_sheet_by_name('Assets')
 nwb = openpyxl.Workbook(write_only=True)
 
