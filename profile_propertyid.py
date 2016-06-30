@@ -8,8 +8,8 @@ def profile_propertyid(header_name, sheet, nws, range_expr, cursor):
       row = cursor.fetchone()
       
   row_number = 1
-  error_msg = ""
   for row in sheet.iter_rows(range_string=range_expr):
+      error_msg = ""
       row_number += 1
       for cell in row:
   		if cell.value == None:
