@@ -17,7 +17,7 @@ cursor = conn.cursor()
 Tk().withdraw()
 filename = askopenfilename()
 
-wb = openpyxl.load_workbook(filename, use_iterators = True)
+wb = openpyxl.load_workbook(filename, use_iterators=True)
 sheet = wb.get_sheet_by_name('Assets')
 nwb = openpyxl.Workbook(write_only=True)
 
@@ -42,10 +42,10 @@ while row:
 
 nws = nwb.create_sheet('ExtPropID')
 row_number = 1
-error_msg = ""
 nws.append(['ExtPropID','Row','Errors'])
 range_expr = 'A2:A' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
+	error_msg = ""
     row_number += 1
     for cell in row:
 		if cell.value == None:
@@ -85,10 +85,10 @@ for row in sheet.iter_rows(range_string=range_expr):
 #validate ASSETNAME
 nws = nwb.create_sheet('AssetName')
 row_number = 1
-error_msg = ""
 nws.append(['AssetName','Row','Errors'])	
 range_expr = 'C2:C' + str(row_count)
 for row in sheet.iter_rows(range_string=range_expr):
+	error_msg = ""
 	row_number += 1
 	for cell in row:
 		if cell.value == None:
