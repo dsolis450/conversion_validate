@@ -2,7 +2,7 @@
 
 HEADER_FN = {
  # 'ExtPropertyID': val_propertyid,
-  'AssetClass': val_assetclass
+  'ASSETCLASS': 'val_assetclass'
  # 'AssetName': val_assetname,
  # 'AssetNumber': val_assetnumber,
  # 'SerialNumber': val_serialnumber,
