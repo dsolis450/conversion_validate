@@ -5,6 +5,10 @@ from profile_assetname import profile_assetname
 from profile_assetnumber import profile_assetnumber
 from profile_serialnumber import profile_serialnumber
 from profile_assetrank import profile_assetrank
+from profile_make import profile_make
+from profile_model import profile_model
+from profile_assetstatus import profile_assetstatus
+from profile_assetkeyword import profile_assetkeyword
 
 HEADER_FN = {
 	'PROPERTYID': profile_propertyid,
@@ -12,11 +16,11 @@ HEADER_FN = {
 	'ASSETNAME': profile_assetname,
 	'ASSETNUMBER': profile_assetnumber,
 	'SERIALNUMBER': profile_serialnumber,
-	'ASSETRANK': profile_assetrank
- # 'MAKE': profile_make,
- # 'MODEL': profile_model,
- # 'ASSETSTATUS': profile_assetstatus,
- # 'ASSETKEYWORD': profile_assetkeyword
+	'ASSETRANK': profile_assetrank,
+	'MAKE': profile_make,
+	'MODEL': profile_model,
+	'ASSETSTATUS': profile_assetstatus,
+	'ASSETKEYWORD': profile_assetkeyword
 }
 
 def apply(valFn, header, ows, range_expr, cur):
