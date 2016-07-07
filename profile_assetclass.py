@@ -1,4 +1,4 @@
-def profile_assetclass(header_name, sheet, nws, range_expr, cursor):
+def profile_assetclass(header_name, sheet, range_expr, cursor):
   cursor.execute("SELECT asc_asset_class_description FROM asm_assetclass ORDER BY 1;")  
   row = cursor.fetchone()	
   results = []
@@ -7,7 +7,7 @@ def profile_assetclass(header_name, sheet, nws, range_expr, cursor):
       row = cursor.fetchone()	
   
   row_number = 1
-  
+  result = []
   for row in sheet.iter_rows(range_string=range_expr):
   	error_msg = ""	
   	row_number += 1
@@ -18,6 +18,6 @@ def profile_assetclass(header_name, sheet, nws, range_expr, cursor):
   		    if cell.value not in results:
   				error_msg += "Asset class not found; "
   				
-  		if error_msg != "":
-  			nws.append([cell.value, row_number, error_msg]) 
-#test
+  		if error_msg != "": 
+			result.append([cell.value, row_number, error_msg])
+  return result
