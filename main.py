@@ -26,7 +26,7 @@ sheet = wb.get_sheet_by_name('Assets')
 nwb = openpyxl.Workbook(write_only=True)
 
 row_count = sheet.max_row
-
+print "\n Starting data profiling..."
 #Collect header names
 header_cells = []
 max_col = get_column_letter(sheet.max_column)
