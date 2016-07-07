@@ -13,8 +13,9 @@ def profile_assetkeyword(header_name, sheet, range_expr, cursor):
 		error_msg = ""
 		row_number += 1
 		for cell in row:
-			if cell.value not in qdata:
-				error_msg += "Asset keyword not found; "
+			if cell.value != None:
+				if cell.value not in qdata:
+					error_msg += "Asset keyword not found; "
   		
 			#create row if errors found
 			if error_msg != "":
