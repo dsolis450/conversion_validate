@@ -38,13 +38,16 @@ for row in sheet.iter_rows(range_string=range_expr):
 #Run the main functions for each header name		
 for header in header_cells:
 	if HEADER_FN.has_key(header.value):
-		nws = nwb.create_sheet(header.value)
-		nws.append([header.value,'Row','Errors'])
 		header_col = get_column_letter(header_cells[0].column)
 		range_expr = header_col + '2:' + header_col + str(row_count)
-		apply(HEADER_FN[header.value], header.value, sheet, nws, range_expr, cursor)
+		fn = HEADER_FN[header.value]
+		results = apply(fn, header.value, sheet, range_expr, cursor)
 		
+		if results:
+			nws = nwb.create_sheet(header.value)
+			nws.append([header.value,'Row','Errors'])
+			for row in results:
+				nws.append(row)
 #Save to new file		
 print "\n Saving..."
-nwb.save('output.xlsx')
-nwb.close()
+nwb.save('output2.xlsx')
