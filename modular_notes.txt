@@ -1,0 +1,41 @@
+from _profile_helper import HEADER_FN
+from _profile_helper import apply
+#same
+#vars
+#header_query = ""
+header_name_lst = (openpyxl command to get first row values)
+header_col = ""
+
+
+for header_name in header_name_lst:
+	if header_name not in HEADER_FUNC_DICT:
+		pass
+	else:
+		nws = nwb.create_sheet(header_name)
+		nws.append([header_name,'Row','Errors'])
+		range_expr = header_col + '2:' + header_col + str(row_count)
+		apply(HEADER_FUNC_DICT[header_name], header_name, sheet, nws, range_expr, cursor)
+
+
+	
+CREATE profile_val_function #the function that runs the specific function for each header_col
+profile_val_function:
+	start query if query
+		cursor.execute(header_query)
+		row.cursor.fetchone()
+		results = []
+		while row:
+			results.append(row[0])
+			row = cursor.fetchone()
+			
+	row_number = 1
+	iter_rows
+		write
+		
+
+CREATE header val functions
+	
+#for row in sheet.iter_rows(range_string = range_expr):
+	#error_msg = ""
+	#row_number +=1
+	#for cell in row:
