@@ -1,5 +1,5 @@
-def profile_propertyid(header_name, sheet, range_expr, cursor):
-	cursor.execute("SELECT lgp_external_property_id FROM lgb_property ORDER BY 1;")  
+def profile_assetrank(header_name, sheet, range_expr, cursor):
+	cursor.execute("SELECT asr_asset_rank_description FROM asm_assetrank ORDER BY 1;")  
 	row = cursor.fetchone()
 	results = []  
 	while row:  
@@ -13,11 +13,12 @@ def profile_propertyid(header_name, sheet, range_expr, cursor):
 		row_number += 1
 		for cell in row:
 			if cell.value == None:
-				error_msg += "PropertyID required; "
+				error_msg += "Asset rank required; "
 			else:
 				if cell.value not in results:
-					error_msg += "Property ID not found; "
-  		
+					error_msg += "Asset rank not found; "
+  	
+			#create row if errors found
 			if error_msg != "":
 				result.append([cell.value, row_number, error_msg])
 	return result

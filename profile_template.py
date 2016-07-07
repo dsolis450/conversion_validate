@@ -1,5 +1,5 @@
-def profile_propertyid(header_name, sheet, range_expr, cursor):
-	cursor.execute("SELECT lgp_external_property_id FROM lgb_property ORDER BY 1;")  
+def profile_'''colname'''(header_name, sheet, range_expr, cursor):
+	cursor.execute('''"query"''')  
 	row = cursor.fetchone()
 	results = []  
 	while row:  
@@ -12,12 +12,16 @@ def profile_propertyid(header_name, sheet, range_expr, cursor):
 		error_msg = ""
 		row_number += 1
 		for cell in row:
+			''' Uncomment if required value
 			if cell.value == None:
-				error_msg += "PropertyID required; "
+				error_msg += "FIELD required; "
 			else:
-				if cell.value not in results:
-					error_msg += "Property ID not found; "
+			'''
+			#Indent if working with required value logic above
+			if cell.value  '''enter logic to check for error''':
+				error_msg += "enter error message; "
   		
+			#create row if errors found
 			if error_msg != "":
 				result.append([cell.value, row_number, error_msg])
 	return result
