@@ -1,9 +1,9 @@
 def profile_propertyid(header_name, sheet, range_expr, cursor):
 	cursor.execute("SELECT lgp_external_property_id FROM lgb_property ORDER BY 1;")  
 	row = cursor.fetchone()
-	results = []  
+	qdata = []  
 	while row:  
-		results.append(row[0])    
+		qdata.append(row[0])    
 		row = cursor.fetchone()
       
 	row_number = 1
@@ -15,7 +15,7 @@ def profile_propertyid(header_name, sheet, range_expr, cursor):
 			if cell.value == None:
 				error_msg += "PropertyID required; "
 			else:
-				if cell.value not in results:
+				if cell.value not in qdata:
 					error_msg += "Property ID not found; "
   		
 			if error_msg != "":

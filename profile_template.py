@@ -1,9 +1,9 @@
 def profile_'''colname'''(header_name, sheet, range_expr, cursor):
 	cursor.execute('''"query"''')  
 	row = cursor.fetchone()
-	results = []  
-	while row:  
-		results.append(row[0])    
+	qdata = [] 
+	while row:
+		qdata.append(row[0]) 
 		row = cursor.fetchone()
       
 	row_number = 1

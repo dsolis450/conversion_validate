@@ -16,7 +16,7 @@ try:
 except pymssql.Error as e:
 	print "An error has occurred: ", e
 	sys.exit(1)
-cursor = conn.cursor()  
+cursor = conn.cursor()
 
 #Open the read excel file and the results excel file 
 Tk().withdraw()
@@ -38,9 +38,10 @@ for row in sheet.iter_rows(range_string=range_expr):
 #Run the main functions for each header name		
 for header in header_cells:
 	if HEADER_FN.has_key(header.value):
-		header_col = get_column_letter(header_cells[0].column)
+		header_col = get_column_letter(header.column)
 		range_expr = header_col + '2:' + header_col + str(row_count)
 		fn = HEADER_FN[header.value]
+
 		results = apply(fn, header.value, sheet, range_expr, cursor)
 		
 		if results:

@@ -1,9 +1,9 @@
 def profile_assetrank(header_name, sheet, range_expr, cursor):
 	cursor.execute("SELECT asr_asset_rank_description FROM asm_assetrank ORDER BY 1;")  
 	row = cursor.fetchone()
-	results = []  
+	qdata = []  
 	while row:  
-		results.append(row[0])    
+		qdata.append(row[0]) 
 		row = cursor.fetchone()
       
 	row_number = 1
@@ -15,7 +15,7 @@ def profile_assetrank(header_name, sheet, range_expr, cursor):
 			if cell.value == None:
 				error_msg += "Asset rank required; "
 			else:
-				if cell.value not in results:
+				if cell.value not in qdata:
 					error_msg += "Asset rank not found; "
   	
 			#create row if errors found
