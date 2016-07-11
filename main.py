@@ -51,4 +51,4 @@ for header in header_cells:
 				nws.append(row)
 #Save to new file		
 print "\n Saving..."
-nwb.save('output2.xlsx')
+nwb.save('output.xlsx')

@@ -17,6 +17,8 @@ def profile_assetrank(header_name, sheet, range_expr, cursor):
 			else:
 				if cell.value not in qdata:
 					error_msg += "Asset rank not found; "
+				if len(str(cell.value)) > 50:
+					error_msg += "Value is longer than 50 characters; "
   	
 			#create row if errors found
 			if error_msg != "":
