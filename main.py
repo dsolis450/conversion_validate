@@ -12,7 +12,7 @@ from openpyxl.cell import get_column_letter
 #Connect to database
 database_in = 'SUPPORT' + raw_input('Enter support database number: ')
 try:
-    conn = pymssql.connect(server='ATLASSPSQL1', user='sa', password='titp4sa', database=database_in)  
+    conn = pymssql.connect("conn info")  
 except pymssql.Error as e:
 	print "An error has occurred: ", e
 	sys.exit(1)
